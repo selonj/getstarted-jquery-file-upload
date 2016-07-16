@@ -1,0 +1,24 @@
+{
+  "name": "getstarted-jquery-file-upload",
+  "authors": [
+    "feexon <feexon@foxmail.com>"
+  ],
+  "description": "",
+  "main": "",
+  "moduleType": [],
+  "license": "MIT",
+  "homepage": "",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "blueimp-file-upload": "jquery-file-upload#^9.12.5"
+  },
+  "devDependencies": {
+    "jquery-ui": "jquery.ui#^1.12.0"
+  }
+}

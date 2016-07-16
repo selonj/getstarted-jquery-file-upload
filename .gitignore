@@ -1,0 +1,25 @@
+### JetBrains template
+*.iml
+.idea
+out
+#gradle
+.gradle
+build/
+
+!gradle-wrapper.jar
+# NodeJs
+logs
+*.log
+npm-debug.log*
+pids
+*.pid
+*.seed
+lib-cov
+coverage
+.grunt
+.lock-wscript
+build/Release
+node_modules
+
+#bower
+src/main/webapp/vendors
