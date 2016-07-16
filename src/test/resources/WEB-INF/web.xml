@@ -8,10 +8,14 @@
   <servlet>
     <servlet-name>upload</servlet-name>
     <servlet-class>com.feexon.FileUploadServlet</servlet-class>
+    <init-param>
+      <param-name>tempDir</param-name>
+      <param-value>/build/jetty/temp</param-value>
+    </init-param>
+    <init-param>
+      <param-name>uploadDir</param-name>
+      <param-value>/build/jetty/upload</param-value>
+    </init-param>
     <load-on-startup>1</load-on-startup>
   </servlet>
-  <servlet-mapping>
-    <servlet-name>upload</servlet-name>
-    <url-pattern>/upload/*</url-pattern>
-  </servlet-mapping>
 </web-app>
