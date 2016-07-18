@@ -19,6 +19,8 @@ import org.apache.commons.fileupload.disk.DiskFileItemFactory;
 import org.apache.commons.fileupload.servlet.ServletFileUpload;
 import org.apache.commons.io.FileUtils;
 import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
 
 import static org.apache.commons.fileupload.disk.DiskFileItemFactory.DEFAULT_SIZE_THRESHOLD;
 import static org.apache.commons.io.FileUtils.copyFile;
@@ -108,16 +110,18 @@ public class FileUploadServlet extends HttpServlet {
     return filenames;
   }
 
-  private void respondTo(HttpServletRequest req, HttpServletResponse resp, List<String> filenames) throws IOException {
+  private void respondTo(HttpServletRequest req, HttpServletResponse resp, List<String> filenames) throws IOException, JSONException {
     PrintWriter out = resp.getWriter();
     out.write(paths(req, filenames).toString());
     out.close();
   }
 
-  private JSONArray paths(HttpServletRequest req, List<String> filenames) {
+  private JSONObject paths(HttpServletRequest req, List<String> filenames) throws JSONException {
     JSONArray paths = new JSONArray();
     for (String filename : filenames) paths.put(path(req, filename));
-    return paths;
+    JSONObject root = new JSONObject();
+    root.put("files", paths);
+    return root;
   }
 
   private String save(FileItem item) throws IOException {

@@ -15,8 +15,8 @@ import org.apache.http.impl.client.HttpClients;
 import org.eclipse.jetty.server.Handler;
 import org.eclipse.jetty.server.Server;
 import org.eclipse.jetty.webapp.WebAppContext;
-import org.json.JSONArray;
 import org.json.JSONException;
+import org.json.JSONObject;
 import org.json.JSONTokener;
 import org.junit.After;
 import org.junit.Before;
@@ -76,11 +76,11 @@ public class FileUploadTest {
   }
 
   private String theLocationOf(HttpResponse response) throws IOException, JSONException {
-    return toJSONArray(theContentOf(response)).getString(0);
+    return toJSONObject(theContentOf(response)).getJSONArray("files").getString(0);
   }
 
-  private JSONArray toJSONArray(String content) throws IOException, JSONException {
-    return new JSONArray(new JSONTokener(content));
+  private JSONObject toJSONObject(String content) throws IOException, JSONException {
+    return new JSONObject(new JSONTokener(content));
   }
 
   private HttpResponse execute(HttpUriRequest request) throws IOException {
