@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <script src="vendors/jquery/dist/jquery.js"></script>
+  <script src="vendors/blueimp-file-upload/js/vendor/jquery.ui.widget.js"></script>
+  <script src="vendors/blueimp-file-upload/js/jquery.fileupload.js"></script>
+</head>
+<body>
+<form>
+  <input type="hidden" name="key" value="value">
+  <input type="file" id="file">
+</form>
+<div id="console"></div>
+<script>
+  $('#file').fileupload({
+    url: 'upload',
+    dataType:'json',
+    formData:[],//ignoring form params
+    paramName: 'files',
+    done: function (e, data) {
+      var message = $('<div>').append('file saved in server at ' + data.result.files[0]);
+      $('#console').append(message);
+    }
+  });
+</script>
+</body>
+</html>
