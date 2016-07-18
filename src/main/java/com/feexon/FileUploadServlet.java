@@ -4,6 +4,7 @@ import java.io.File;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.PrintWriter;
+import java.io.UnsupportedEncodingException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.UUID;
@@ -114,6 +115,15 @@ public class FileUploadServlet extends HttpServlet {
     PrintWriter out = resp.getWriter();
     out.write(paths(req, filenames).toString());
     out.close();
+  }
+
+  @Override protected void service(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+    super.service(setRequestEncoding(req), resp);
+  }
+
+  private HttpServletRequest setRequestEncoding(HttpServletRequest req) throws UnsupportedEncodingException {
+    req.setCharacterEncoding("UTF-8");
+    return req;
   }
 
   private JSONObject paths(HttpServletRequest req, List<String> filenames) throws JSONException {
