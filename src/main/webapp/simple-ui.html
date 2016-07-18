@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <link rel="stylesheet" href="vendors/font-awesome/css/font-awesome.css">
+  <link rel="stylesheet" href="css/jquery.fileupload.css">
+  <script src="vendors/jquery/dist/jquery.js"></script>
+  <script src="vendors/blueimp-file-upload/js/vendor/jquery.ui.widget.js"></script>
+  <script src="vendors/blueimp-file-upload/js/jquery.fileupload.js"></script>
+  <script src="vendors/blueimp-file-upload/js/jquery.fileupload-process.js"></script>
+  <script src="js/jquery.fileupload.plugin.js"></script>
+</head>
+<body>
+<form>
+  <input type="hidden" name="key" value="value">
+  <div class="fileupload-ui"
+       data-toggle="fileupload" data-url="upload" data-param-name="files" data-form-data="[]">
+    <div class="fileupload-preview" style="width:200px;height:100px;"></div>
+    <div class="fileupload-progress">
+      <div class="fileupload-progressing"></div>
+    </div>
+    <div class="fileupload-btn">
+      <i class="fa fa-upload"></i>
+      <span>上传农场Logo</span>
+      <input type="file">
+    </div>
+  </div>
+</form>
+
+</body>
+</html>

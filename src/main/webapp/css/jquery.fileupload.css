@@ -1,0 +1,50 @@
+* {
+  box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+}
+.fileupload-ui {
+  display: inline-block;
+  border: 1px solid #5ca465;
+  border-radius: 2px;
+  -moz-border-radius: 2px;
+  -webkit-border-radius: 2px;
+  text-align: center;
+}
+.fileupload-ui .fileupload-preview {
+  padding: 5px;
+}
+.fileupload-ui .fileupload-preview img {
+  width: 100% !important;
+  height: 100% !important;
+  border-radius: 2px;
+  -moz-border-radius: 2px;
+  -webkit-border-radius: 2px;
+}
+.fileupload-ui .fileupload-progress {
+  height: 2px;
+  visibility: hidden;
+}
+.fileupload-ui .fileupload-progressing {
+  width: 0;
+  height: 100%;
+  background: #f0ad4e;
+}
+.fileupload-ui .fileupload-btn {
+  background: #6cad74;
+  color: #ffffff;
+  position: relative;
+  padding: 10px 15px;
+}
+.fileupload-ui .fileupload-btn input {
+  display: block;
+  cursor: pointer;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  -moz-opacity: 0;
+  filter: progid:DXImageTransform.Microsoft.Alpha(0);
+  position: absolute;
+  top: 0;
+  left: 0;
+}

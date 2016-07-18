@@ -1,0 +1,48 @@
+.box-sizing(@box-sizing){
+  box-sizing:@box-sizing;
+  -moz-box-sizing:@box-sizing;
+  -webkit-box-sizing:@box-sizing;
+}
+.invisible() {
+  visibility: hidden;
+}
+
+.size(@width,@height) {
+  width: @width;
+  height: @height;
+}
+
+.opacity(@opacity) {
+  opacity: @opacity;
+  -moz-opacity: @opacity;
+  filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=(@opacity * 100));
+}
+
+.transparent() {
+  .opacity(0);
+}
+
+#text() {
+  .center() {
+    text-align: center;
+  }
+}
+
+#position() {
+  .abs() {
+    position: absolute;
+    #top_left() {
+      #position> .abs;
+      top: 0;
+      left: 0;
+    }
+    #bottom_left() {
+      #position> .abs;
+      bottom: 0;
+      left: 0;
+    }
+  }
+  .relative() {
+    position: relative;
+  }
+}

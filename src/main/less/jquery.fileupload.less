@@ -1,0 +1,49 @@
+@import (once) "_library";
+@import (once) "_variables";
+
+* {
+  .box-sizing(border-box);
+}
+
+.radius(@radius) {
+  border-radius: @radius;
+  -moz-border-radius: @radius;
+  -webkit-border-radius: @radius;
+}
+
+.fileupload-ui {
+  display: inline-block;
+  border: 1px solid @button-border-color;
+
+  .radius(@button-radius);
+  #text > .center;
+  .fileupload-preview {
+    padding: 5px;
+    img {
+      .size(100%, 100%) !important;
+      .radius(@button-radius);
+    }
+  }
+  .fileupload-progress {
+    height: 2px;
+    .invisible;
+  }
+  .fileupload-progressing {
+    .size(0, 100%);
+    background: @progress-bg-color;
+  }
+  .fileupload-btn {
+    background: @button-bg-color;
+    color: @button-color;
+    #position > .relative;
+    padding: @button-padding;
+    input {
+      display: block;
+      cursor: pointer;
+      .size(100%, 100%);
+      .transparent;
+
+      #position > .abs > #top_left;
+    }
+  }
+}
