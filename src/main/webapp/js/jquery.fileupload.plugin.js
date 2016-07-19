@@ -102,7 +102,7 @@
   $(document).on('change', selectors.multiple, function (e) {
     var file = $(e.target);
     var control = file.closest(selectors.multiple);
-    var context = $($(control.attr('data-template')).html()).find('.fileupload-preview').width(control.width()).height(control.height()).end().insertAfter(control);
+    var context = $($(control.attr('data-template')).html()).find('.fileupload-preview').width(control.width()).height(control.height()).end().appendTo(control.parent());
     window.fileupload(context).fileupload('add', {fileInput: file});
     file.val(null);
   });
