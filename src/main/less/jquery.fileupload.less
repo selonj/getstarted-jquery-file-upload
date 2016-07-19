@@ -5,27 +5,77 @@
   .box-sizing(border-box);
 }
 
-.radius(@radius) {
-  border-radius: @radius;
-  -moz-border-radius: @radius;
-  -webkit-border-radius: @radius;
+.fileupload-container {
+  @horizontal_gap: 10px;
+  @vertical_gap: 10px;
+  margin: -@vertical_gap/2 -@horizontal_gap/2 ;
+  .fileupload-plus, .fileupload-ui {
+    margin: @vertical_gap/2 @horizontal_gap/2;
+  }
+}
+
+.fileinput() {
+  display: block;
+  cursor: pointer;
+  .size(100%, 100%);
+  .transparent;
+  #position > .abs > #top_left;
+}
+
+.fileupload-plus, .fileupload-ui {
+  #position> .relative;
+  display: inline-block;
+  .border-radius(@button-radius);
+}
+
+.fileupload-plus {
+  border: @button-border-width solid @button-plus-border-color;
+  padding: @progress-bar-height/2 0;
+  .box-sizing(content-box);
+  span {
+    @position: 50%;
+    #position > .abs > #top_left(@position);
+    & .fa {
+      #position > .relative;
+      left: -@position;
+      margin-top: -@position;
+      font-size: 350%;
+      color: @button-plus-color;
+    }
+  }
+  input {
+    .fileinput();
+  }
 }
 
 .fileupload-ui {
-  display: inline-block;
-  border: 1px solid @button-border-color;
-
-  .radius(@button-radius);
+  border: @button-border-width solid @button-border-color;
+  .fileupload-actionbar {
+    overflow: hidden;
+    #position > .abs > #top_right();
+    #text > .right;
+    .size(100%, auto);
+    .border-top-right-radius(@button-radius - 1);
+    a {
+      float: right;
+      background: @button-bg-color;
+      color: @button-color;
+      padding: @icon-button-padding;
+    }
+    z-index: 100;
+  }
   #text > .center;
   .fileupload-preview {
     padding: 5px;
+    #position > .relative;
     img {
+      float:left;
       .size(100%, 100%) !important;
-      .radius(@button-radius);
+      .border-radius(@button-radius);
     }
   }
   .fileupload-progress {
-    height: 2px;
+    height: @progress-bar-height;
     .invisible;
   }
   .fileupload-progressing {
@@ -38,12 +88,7 @@
     #position > .relative;
     padding: @button-padding;
     input {
-      display: block;
-      cursor: pointer;
-      .size(100%, 100%);
-      .transparent;
-
-      #position > .abs > #top_left;
+      .fileinput()
     }
   }
 }

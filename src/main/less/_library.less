@@ -1,13 +1,14 @@
-.box-sizing(@box-sizing){
-  box-sizing:@box-sizing;
-  -moz-box-sizing:@box-sizing;
-  -webkit-box-sizing:@box-sizing;
+.box-sizing(@box-sizing) {
+  box-sizing: @box-sizing;
+  -moz-box-sizing: @box-sizing;
+  -webkit-box-sizing: @box-sizing;
 }
+
 .invisible() {
   visibility: hidden;
 }
 
-.size(@width,@height) {
+.size(@width,@height:@width) {
   width: @width;
   height: @height;
 }
@@ -26,23 +27,43 @@
   .center() {
     text-align: center;
   }
+  .right() {
+    text-align: right;
+  }
 }
 
 #position() {
   .abs() {
     position: absolute;
-    #top_left() {
+    #top_left(@top:0,@left:@top) {
       #position> .abs;
-      top: 0;
-      left: 0;
+      top: @top;
+      left: @left;
     }
-    #bottom_left() {
+    #top_right(@top:0,@right:@top) {
       #position> .abs;
-      bottom: 0;
-      left: 0;
+      top: @top;
+      right: @right;
+    }
+    #center() {
+      #position > .abs > #top_left(50%);
     }
   }
+
   .relative() {
     position: relative;
   }
+}
+
+
+.border-radius(@radius) {
+  border-radius: @radius;
+  -moz-border-radius: @radius;
+  -webkit-border-radius: @radius;
+}
+
+.border-top-right-radius(@radius) {
+  border-top-right-radius: @radius;
+  -moz-border-top-right-radius: @radius;
+  -webkit-border-top-right-radius: @radius;
 }

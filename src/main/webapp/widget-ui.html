@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <link rel="stylesheet" href="vendors/font-awesome/css/font-awesome.css">
+  <link rel="stylesheet" href="css/jquery.fileupload.css">
+  <script src="vendors/jquery/dist/jquery.js"></script>
+  <script src="vendors/blueimp-file-upload/js/vendor/jquery.ui.widget.js"></script>
+  <script src="vendors/blueimp-file-upload/js/jquery.fileupload.js"></script>
+  <script src="vendors/blueimp-file-upload/js/jquery.fileupload-process.js"></script>
+  <script src="js/jquery.fileupload.plugin.js"></script>
+  <script>
+    var config={
+      baseURL:'/jquery-file-upload'
+    };
+  </script>
+</head>
+<body>
+<form>
+  <input type="hidden" name="key" value="value">
+  <div class="fileupload-container">
+    <div class="fileupload-plus" style="width:200px;height:100px;" data-toggle="multi-upload" data-template="#temp-ui">
+      <span><i class="fa fa-plus"></i></span>
+      <input type="file">
+    </div>
+  </div>
+</form>
+<script type="text/html" id="temp-ui">
+  <div class="fileupload-ui" data-toggle="fileupload"
+       data-service-url="/success.json" data-service-param-name="picture"
+       data-url="upload" data-param-name="files" data-form-data="[]" data-field-name="value">
+    <div class="fileupload-actionbar">
+      <a href="javascript://" data-toggle="remove" data-url=""><i class="fa fa-remove"></i></a>
+    </div>
+    <div class="fileupload-preview"></div>
+    <div class="fileupload-progress">
+      <div class="fileupload-progressing"></div>
+    </div>
+  </div>
+</script>
+</body>
+</html>
