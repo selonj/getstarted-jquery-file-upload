@@ -14,14 +14,6 @@
   }
 }
 
-.fileinput() {
-  display: block;
-  cursor: pointer;
-  .size(100%, 100%);
-  .transparent;
-  #position > .abs > #top_left;
-}
-
 .fileupload-plus, .fileupload-ui {
   #position> .relative;
   display: inline-block;
@@ -44,7 +36,11 @@
     }
   }
   input {
-    .fileinput();
+    display: block;
+    cursor: pointer;
+    .size(100%, 100%);
+    .transparent;
+    #position > .abs > #top_left;
   }
 }
 
@@ -88,7 +84,7 @@
     #position > .relative;
     padding: @button-padding;
     input {
-      .fileinput()
+      &:extend(.fileupload-plus input);
     }
   }
 }
