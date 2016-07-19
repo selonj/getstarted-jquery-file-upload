@@ -4,27 +4,54 @@
   <meta charset="UTF-8">
   <link rel="stylesheet" href="vendors/font-awesome/css/font-awesome.css">
   <link rel="stylesheet" href="css/jquery.fileupload.css">
+  <link rel="stylesheet" href="vendors/bootstrap/dist/css/bootstrap.css">
+  <link rel="stylesheet" href="vendors/bootstrap/dist/css/bootstrap-theme.css">
   <script src="vendors/jquery/dist/jquery.js"></script>
   <script src="vendors/blueimp-file-upload/js/vendor/jquery.ui.widget.js"></script>
   <script src="vendors/blueimp-file-upload/js/jquery.fileupload.js"></script>
   <script src="vendors/blueimp-file-upload/js/jquery.fileupload-process.js"></script>
   <script src="js/jquery.fileupload.plugin.js"></script>
   <script>
-    var config={
-      baseURL:'/jquery-file-upload'
+    var config = {
+      baseURL: '/jquery-file-upload'
     };
   </script>
 </head>
 <body>
-<form>
-  <input type="hidden" name="key" value="value">
-  <div class="fileupload-container">
-    <div class="fileupload-plus" style="width:200px;height:100px;" data-toggle="multi-upload" data-template="#temp-ui">
-      <span><i class="fa fa-plus"></i></span>
-      <input type="file">
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-sm-10 col-sm-offset-1">
+      <form class="form-horizontal" role="form">
+        <input type="hidden" name="key" value="value">
+        <div class="form-group">
+          <input class="form-control">
+        </div>
+        <div class="form-group">
+          <!--fileupload-->
+          <div class="fileupload-container">
+            <div class="fileupload-plus" style="width:200px;height:100px;" data-toggle="multi-upload" data-template="#temp-ui">
+              <span><i class="fa fa-plus"></i></span>
+              <input type="file">
+            </div>
+          </div>
+          <!--./fileupload-->
+        </div>
+        <div class="form-group">
+          <input type="submit" class="btn btn-default" value="Submit">
+        </div>
+      </form>
     </div>
   </div>
-</form>
+</div>
+<!--fileupload template-->
+<!--
+  @data-url 图片上传URL
+  @data-param-name 图片上传参数名称
+  @data-field-name 图片上传后生成的隐藏域名称
+  @data-form-data  图片上传表单数据，为[]可以防止图片上传时传递当前表单的数据
+  @data-service-url 上传成功后通知服务器的URL
+  @data-service-param-name 上传成功后通知服务器的参数
+-->
 <script type="text/html" id="temp-ui">
   <div class="fileupload-ui" data-toggle="fileupload"
        data-service-url="/success.json" data-service-param-name="picture"
@@ -32,7 +59,13 @@
     <div class="fileupload-actionbar">
       <a href="javascript://" data-toggle="remove" data-url=""><i class="fa fa-remove"></i></a>
     </div>
-    <div class="fileupload-preview"></div>
+    <div class="fileupload-preview">
+      <!--服务器端在显示已上传的数据是，根据需要显示 img及隐藏域,如下所示：-->
+      <!--
+      <img src="%{value filled by server}">
+      <input type="hidden" name="%{data-field-name}" value="%{value filled by server}">
+      -->
+    </div>
     <div class="fileupload-progress">
       <div class="fileupload-progressing"></div>
     </div>
