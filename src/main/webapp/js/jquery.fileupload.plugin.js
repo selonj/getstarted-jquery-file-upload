@@ -58,14 +58,15 @@
       add: function (e, data) {
         var type = 'upload';
         var self = $(this);
+
         self.dequeue(type).queue(type, function (next) {
           data.abort();
           next();
         });
         self.find(selectors.remove).one('click', function () {
           if (data.state() === 'pending') {
-            self.detach();
             data.abort();
+            self.remove();
           }
         });
         originalAdd.call(this, e, data);
