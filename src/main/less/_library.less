@@ -16,7 +16,7 @@
 .opacity(@opacity) {
   opacity: @opacity;
   -moz-opacity: @opacity;
-  filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=(@opacity * 100));
+  filter: e(%("progid:DXImageTransform.Microsoft.Alpha(opacity=%d)",@opacity*100));
 }
 
 .transparent() {
@@ -54,7 +54,6 @@
     position: relative;
   }
 }
-
 
 .border-radius(@radius) {
   border-radius: @radius;
